@@ -34,7 +34,7 @@ public class FinEvaluacion extends JFrame {
 	private JTextField textFieldMantenibilidad;
 	private JTextField textFieldUsabilidad;
 	private JTextField textFieldPortabilidad;
-	private JTextField textFieldResumen;
+	private JTextField textFieldCalificacion;
 
 	/**
 	 * Launch the application.
@@ -96,7 +96,7 @@ public class FinEvaluacion extends JFrame {
 		contentPane.add(lblFuncionalidad);
 
 		textFieldFuncionabilidad = new JTextField();
-		textFieldFuncionabilidad.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		textFieldFuncionabilidad.setFont(new Font("Dialog", Font.BOLD, 14));
 		textFieldFuncionabilidad.setHorizontalAlignment(SwingConstants.CENTER);
 		textFieldFuncionabilidad.setEditable(false);
 		textFieldFuncionabilidad.setColumns(10);
@@ -109,7 +109,7 @@ public class FinEvaluacion extends JFrame {
 		contentPane.add(lblEficiencia);
 
 		textFieldEficiencia = new JTextField();
-		textFieldEficiencia.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		textFieldEficiencia.setFont(new Font("Dialog", Font.BOLD, 14));
 		textFieldEficiencia.setHorizontalAlignment(SwingConstants.CENTER);
 		textFieldEficiencia.setEditable(false);
 		textFieldEficiencia.setColumns(10);
@@ -122,7 +122,7 @@ public class FinEvaluacion extends JFrame {
 		contentPane.add(lblFiabilidad);
 
 		textFieldFiabilidad = new JTextField();
-		textFieldFiabilidad.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		textFieldFiabilidad.setFont(new Font("Dialog", Font.BOLD, 14));
 		textFieldFiabilidad.setHorizontalAlignment(SwingConstants.CENTER);
 		textFieldFiabilidad.setEditable(false);
 		textFieldFiabilidad.setColumns(10);
@@ -135,7 +135,7 @@ public class FinEvaluacion extends JFrame {
 		contentPane.add(lblMantenibilidad);
 
 		textFieldMantenibilidad = new JTextField();
-		textFieldMantenibilidad.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		textFieldMantenibilidad.setFont(new Font("Dialog", Font.BOLD, 14));
 		textFieldMantenibilidad.setHorizontalAlignment(SwingConstants.CENTER);
 		textFieldMantenibilidad.setEditable(false);
 		textFieldMantenibilidad.setColumns(10);
@@ -148,7 +148,7 @@ public class FinEvaluacion extends JFrame {
 		contentPane.add(lblUsabilidad);
 
 		textFieldUsabilidad = new JTextField();
-		textFieldUsabilidad.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		textFieldUsabilidad.setFont(new Font("Dialog", Font.BOLD, 14));
 		textFieldUsabilidad.setHorizontalAlignment(SwingConstants.CENTER);
 		textFieldUsabilidad.setEditable(false);
 		textFieldUsabilidad.setColumns(10);
@@ -161,83 +161,121 @@ public class FinEvaluacion extends JFrame {
 		contentPane.add(lblPortabilidad);
 
 		textFieldPortabilidad = new JTextField();
-		textFieldPortabilidad.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		textFieldPortabilidad.setFont(new Font("Dialog", Font.BOLD, 14));
 		textFieldPortabilidad.setHorizontalAlignment(SwingConstants.CENTER);
 		textFieldPortabilidad.setEditable(false);
 		textFieldPortabilidad.setColumns(10);
 		textFieldPortabilidad.setBounds(193, 216, 130, 20);
 		contentPane.add(textFieldPortabilidad);
 
-		textFieldResumen = new JTextField();
-		textFieldResumen.setHorizontalAlignment(SwingConstants.CENTER);
-		textFieldResumen.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		textFieldResumen.setEditable(false);
-		textFieldResumen.setBounds(37, 262, 274, 32);
-		contentPane.add(textFieldResumen);
-		textFieldResumen.setColumns(10);
+		JLabel lblCalidadDelSoftware = new JLabel("CALIDAD DEL SOFTWARE");
+		lblCalidadDelSoftware.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblCalidadDelSoftware.setBounds(20, 272, 163, 14);
+		contentPane.add(lblCalidadDelSoftware);
+
+		textFieldCalificacion = new JTextField();
+		textFieldCalificacion.setHorizontalAlignment(SwingConstants.CENTER);
+		textFieldCalificacion.setFont(new Font("Dialog", Font.BOLD, 14));
+		textFieldCalificacion.setEditable(false);
+		textFieldCalificacion.setBounds(193, 262, 130, 32);
+		contentPane.add(textFieldCalificacion);
+		textFieldCalificacion.setColumns(10);
 
 		mostrarResultados();
 	}
 
 	private void mostrarResultados() {
-		textFieldFuncionabilidad.setText(this.maestra.getFuncionabilidad() + " de 5");
-		textFieldEficiencia.setText(this.maestra.getEficiencia() + " de 5");
-		textFieldFiabilidad.setText(this.maestra.getFiabilidad() + " de 5");
-		textFieldMantenibilidad.setText(this.maestra.getMantenibilidad() + " de 5");
-		textFieldUsabilidad.setText(this.maestra.getUsabilidad() + " de 5");
-		textFieldPortabilidad.setText(this.maestra.getPortabilidad() + " de 5");
+		int mala = 0;
+		int excelente = 0;
 
-		if (this.maestra.getFuncionabilidad() >= this.maestra.getFuncionabilidadEsperada()) {
+		if (this.maestra.getFuncionabilidad() == 0) {
+			textFieldFuncionabilidad.setText("MALA");
+			textFieldFuncionabilidad.setForeground(Color.RED);
+			mala++;
+		} else if (this.maestra.getFuncionabilidad() > 1.5 && this.maestra.getFuncionabilidad() < 2.5) {
+			textFieldFuncionabilidad.setText("BUENA");
 			textFieldFuncionabilidad.setForeground(Color.GREEN);
 		} else {
-			textFieldFuncionabilidad.setForeground(Color.RED);
+			textFieldFuncionabilidad.setText("EXCELENTE");
+			textFieldFuncionabilidad.setForeground(Color.GREEN);
+			excelente++;
 		}
 
-		if (this.maestra.getEficiencia() >= this.maestra.getEficienciaEsperada()) {
+		if (this.maestra.getEficiencia() == 0) {
+			textFieldEficiencia.setText("MALA");
+			textFieldEficiencia.setForeground(Color.RED);
+			mala++;
+		} else if (this.maestra.getEficiencia() > 1.5 && this.maestra.getEficiencia() < 2.5) {
+			textFieldEficiencia.setText("BUENA");
 			textFieldEficiencia.setForeground(Color.GREEN);
 		} else {
-			textFieldEficiencia.setForeground(Color.RED);
+			textFieldEficiencia.setText("EXCELENTE");
+			textFieldEficiencia.setForeground(Color.GREEN);
+			excelente++;
 		}
 
-		if (this.maestra.getFiabilidad() >= this.maestra.getFiabilidadEsperada()) {
+		if (this.maestra.getFiabilidad() == 0) {
+			textFieldFiabilidad.setText("MALA");
+			textFieldFiabilidad.setForeground(Color.RED);
+			mala++;
+		} else if (this.maestra.getFiabilidad() > 1.5 && this.maestra.getFiabilidad() < 2.5) {
+			textFieldFiabilidad.setText("BUENA");
 			textFieldFiabilidad.setForeground(Color.GREEN);
 		} else {
-			textFieldFiabilidad.setForeground(Color.RED);
+			textFieldFiabilidad.setText("EXCELENTE");
+			textFieldFiabilidad.setForeground(Color.GREEN);
+			excelente++;
 		}
 
-		if (this.maestra.getMantenibilidad() >= this.maestra.getMantenibilidadEsperada()) {
+		if (this.maestra.getMantenibilidad() == 0) {
+			textFieldMantenibilidad.setText("MALA");
+			textFieldMantenibilidad.setForeground(Color.RED);
+			mala++;
+		} else if (this.maestra.getMantenibilidad() > 1.5 && this.maestra.getMantenibilidad() < 2.5) {
+			textFieldMantenibilidad.setText("BUENA");
 			textFieldMantenibilidad.setForeground(Color.GREEN);
 		} else {
-			textFieldMantenibilidad.setForeground(Color.RED);
+			textFieldMantenibilidad.setText("EXCELENTE");
+			textFieldMantenibilidad.setForeground(Color.GREEN);
+			excelente++;
 		}
 
-		if (this.maestra.getUsabilidad() >= this.maestra.getUsabilidadEsperada()) {
+		if (this.maestra.getUsabilidad() == 0) {
+			textFieldUsabilidad.setText("MALA");
+			textFieldUsabilidad.setForeground(Color.RED);
+			mala++;
+		} else if (this.maestra.getUsabilidad() > 1.5 && this.maestra.getUsabilidad() < 2.5) {
+			textFieldUsabilidad.setText("BUENA");
 			textFieldUsabilidad.setForeground(Color.GREEN);
 		} else {
-			textFieldUsabilidad.setForeground(Color.RED);
+			textFieldUsabilidad.setText("EXCELENTE");
+			textFieldUsabilidad.setForeground(Color.GREEN);
+			excelente++;
 		}
 
-		if (this.maestra.getPortabilidad() >= this.maestra.getPortabilidadEsperada()) {
+		if (this.maestra.getPortabilidad() == 0) {
+			textFieldPortabilidad.setText("MALA");
+			textFieldPortabilidad.setForeground(Color.RED);
+			mala++;
+		} else if (this.maestra.getPortabilidad() > 1.5 && this.maestra.getPortabilidad() < 2.5) {
+			textFieldPortabilidad.setText("BUENA");
 			textFieldPortabilidad.setForeground(Color.GREEN);
 		} else {
-			textFieldPortabilidad.setForeground(Color.RED);
+			textFieldPortabilidad.setText("EXCELENTE");
+			textFieldPortabilidad.setForeground(Color.GREEN);
+			excelente++;
 		}
 
-		if (this.maestra.getFuncionabilidad() >= this.maestra.getFuncionabilidadEsperada()) {
-			if (this.maestra.getEficiencia() >= this.maestra.getEficienciaEsperada()) {
-				if (this.maestra.getFiabilidad() >= this.maestra.getFiabilidadEsperada()) {
-					if (this.maestra.getMantenibilidad() >= this.maestra.getMantenibilidadEsperada()) {
-						if (this.maestra.getUsabilidad() >= this.maestra.getUsabilidadEsperada()) {
-							if (this.maestra.getPortabilidad() >= this.maestra.getPortabilidadEsperada()) {
-								textFieldResumen.setText("La calidad del software es satisfactoria");
-								return;
-							}
-						}
-					}
-				}
-			}
+		if (mala != 0) {
+			textFieldCalificacion.setText("MALA");
+			textFieldCalificacion.setForeground(Color.RED);
+		} else if (excelente == 6) {
+			textFieldCalificacion.setText("EXCELENTE");
+			textFieldCalificacion.setForeground(Color.GREEN);
+		} else {
+			textFieldCalificacion.setText("BUENA");
+			textFieldCalificacion.setForeground(Color.GREEN);
 		}
-		textFieldResumen.setText("La calidad del software NO es satisfactoria");
 
 	}
 }

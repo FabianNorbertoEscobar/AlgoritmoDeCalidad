@@ -58,7 +58,7 @@ public class Eficiencia extends JFrame {
 
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 480, 613);
+		setBounds(100, 100, 480, 499);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -70,91 +70,73 @@ public class Eficiencia extends JFrame {
 		contentPane.add(lblElSoftwareDebe);
 
 		JRadioButton rdbtn11 = new JRadioButton("Mayor a 1 seg");
-		rdbtn11.setBounds(6, 79, 360, 23);
-		rdbtn11.setActionCommand("1");
+		rdbtn11.setBounds(10, 81, 360, 23);
+		rdbtn11.setActionCommand("0");
 		contentPane.add(rdbtn11);
 
-		JRadioButton rdbtn12 = new JRadioButton("Entre 1 seg y 500 miliseg");
-		rdbtn12.setBounds(6, 105, 360, 23);
-		rdbtn12.setActionCommand("2");
+		JRadioButton rdbtn12 = new JRadioButton("Entre 200 miliseg y 1 seg");
+		rdbtn12.setBounds(10, 107, 360, 23);
+		rdbtn12.setActionCommand("1");
 		contentPane.add(rdbtn12);
 
-		JRadioButton rdbtn13 = new JRadioButton("Entre 500 miliseg y 200 miliseg");
-		rdbtn13.setBounds(6, 131, 360, 23);
-		rdbtn13.setActionCommand("4");
+		JRadioButton rdbtn13 = new JRadioButton("Menor a 200 miliseg");
+		rdbtn13.setBounds(10, 133, 360, 23);
+		rdbtn13.setActionCommand("3");
 		contentPane.add(rdbtn13);
-
-		JRadioButton rdbtn14 = new JRadioButton("Menor a 200 miliseg");
-		rdbtn14.setBounds(6, 157, 360, 23);
-		rdbtn14.setActionCommand("5");
-		contentPane.add(rdbtn14);
 
 		ButtonGroup grupo1 = new ButtonGroup();
 		grupo1.add(rdbtn11);
 		grupo1.add(rdbtn12);
 		grupo1.add(rdbtn13);
-		grupo1.add(rdbtn14);
 
 		JLabel lblConCuantasDe = new JLabel("\u00BFCu\u00E1l es el tiempo medio para brindar un informe?");
-		lblConCuantasDe.setBounds(14, 213, 459, 14);
+		lblConCuantasDe.setBounds(14, 172, 459, 14);
 		contentPane.add(lblConCuantasDe);
 
 		JRadioButton rdbtn21 = new JRadioButton("Mayor a 1 seg");
-		rdbtn21.setBounds(10, 246, 356, 23);
-		rdbtn21.setActionCommand("1");
+		rdbtn21.setBounds(10, 205, 356, 23);
+		rdbtn21.setActionCommand("0");
 		contentPane.add(rdbtn21);
 
-		JRadioButton rdbtn22 = new JRadioButton("Entre 1 seg y 500 miliseg");
-		rdbtn22.setBounds(10, 272, 356, 23);
-		rdbtn22.setActionCommand("2");
+		JRadioButton rdbtn22 = new JRadioButton("Entre 200 miliseg y 1 seg");
+		rdbtn22.setBounds(10, 231, 356, 23);
+		rdbtn22.setActionCommand("1");
 		contentPane.add(rdbtn22);
 
-		JRadioButton rdbtn23 = new JRadioButton("Entre 500 miliseg y 200 miliseg");
-		rdbtn23.setBounds(10, 298, 356, 23);
-		rdbtn23.setActionCommand("4");
+		JRadioButton rdbtn23 = new JRadioButton("Menor a 200 miliseg");
+		rdbtn23.setBounds(10, 257, 356, 23);
+		rdbtn23.setActionCommand("3");
 		contentPane.add(rdbtn23);
-
-		JRadioButton rdbtn24 = new JRadioButton("Menor a 200 miliseg");
-		rdbtn24.setBounds(10, 324, 356, 23);
-		rdbtn24.setActionCommand("5");
-		contentPane.add(rdbtn24);
 
 		ButtonGroup grupo2 = new ButtonGroup();
 		grupo2.add(rdbtn21);
 		grupo2.add(rdbtn22);
 		grupo2.add(rdbtn23);
-		grupo2.add(rdbtn24);
 
 		JLabel lblUnInformeGenerado = new JLabel(
 				"\u00BFCu\u00E1l es el uso medio de memoria RAM durante la ejecuci\u00F3n del programa?");
-		lblUnInformeGenerado.setBounds(14, 380, 459, 14);
+		lblUnInformeGenerado.setBounds(14, 298, 459, 14);
 		contentPane.add(lblUnInformeGenerado);
 
 		JRadioButton rdbtn31 = new JRadioButton("Mayor a 500MB");
-		rdbtn31.setBounds(10, 412, 356, 23);
-		rdbtn31.setActionCommand("1");
+		rdbtn31.setBounds(10, 330, 356, 23);
+		rdbtn31.setActionCommand("0");
 		contentPane.add(rdbtn31);
 
-		JRadioButton rdbtn32 = new JRadioButton("Entre 500MB y 200MB");
-		rdbtn32.setBounds(10, 438, 356, 23);
-		rdbtn32.setActionCommand("2");
+		JRadioButton rdbtn32 = new JRadioButton("Entre 100MB y 500MB");
+		rdbtn32.setBounds(10, 356, 356, 23);
+		rdbtn32.setActionCommand("1");
 		contentPane.add(rdbtn32);
 
-		JRadioButton rdbtn33 = new JRadioButton("Entre 200MB y 100MB");
-		rdbtn33.setBounds(10, 464, 356, 23);
-		rdbtn33.setActionCommand("4");
+		JRadioButton rdbtn33 = new JRadioButton("Menor a 100MB");
+		rdbtn33.setBounds(10, 382, 356, 23);
+		rdbtn33.setActionCommand("3");
 		contentPane.add(rdbtn33);
-
-		JRadioButton rdbtn34 = new JRadioButton("Menor a 100MB");
-		rdbtn34.setBounds(10, 490, 356, 23);
-		rdbtn34.setActionCommand("5");
-		contentPane.add(rdbtn34);
 
 		ButtonGroup grupo3 = new ButtonGroup();
 		grupo3.add(rdbtn31);
 		grupo3.add(rdbtn32);
 		grupo3.add(rdbtn33);
-		grupo3.add(rdbtn34);
 
 		JButton btnSiguiente = new JButton("Siguiente");
 		btnSiguiente.addActionListener(new ActionListener() {
@@ -168,7 +150,13 @@ public class Eficiencia extends JFrame {
 					int pje2 = Integer.parseInt(grupo2.getSelection().getActionCommand());
 					int pje3 = Integer.parseInt(grupo3.getSelection().getActionCommand());
 
-					float promedio = (float) (pje1 + pje2 + pje3) / 3;
+					float promedio;
+					if (pje1 == 0 || pje2 == 0 || pje3 == 0) {
+						promedio = 0;
+					} else {
+						promedio = (float) (pje1 + pje2 + pje3) / 3;
+					}
+					
 					maestra.setEficiencia(promedio);
 
 					Fiabilidad fiab = new Fiabilidad(getMaestra());
@@ -179,7 +167,7 @@ public class Eficiencia extends JFrame {
 				}
 			}
 		});
-		btnSiguiente.setBounds(201, 539, 89, 23);
+		btnSiguiente.setBounds(201, 426, 89, 23);
 		contentPane.add(btnSiguiente);
 
 		JLabel lblEficiencia = new JLabel("EFICIENCIA");

@@ -58,7 +58,7 @@ public class Fiabilidad extends JFrame {
 
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 604, 474);
+		setBounds(100, 100, 604, 377);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -70,62 +70,50 @@ public class Fiabilidad extends JFrame {
 		contentPane.add(lblElSoftwareDebe);
 
 		JRadioButton rdbtn11 = new JRadioButton("Los campos ingresados se pierden");
-		rdbtn11.setBounds(6, 84, 360, 23);
-		rdbtn11.setActionCommand("1");
+		rdbtn11.setBounds(10, 84, 360, 23);
+		rdbtn11.setActionCommand("0");
 		contentPane.add(rdbtn11);
 
 		JRadioButton rdbtn12 = new JRadioButton("El 50% de los datos ingresados se conservan");
-		rdbtn12.setBounds(6, 110, 360, 23);
-		rdbtn12.setActionCommand("2");
+		rdbtn12.setBounds(10, 110, 360, 23);
+		rdbtn12.setActionCommand("1");
 		contentPane.add(rdbtn12);
 
-		JRadioButton rdbtn13 = new JRadioButton("El 75% de los datos ingresados se conservan");
-		rdbtn13.setBounds(6, 136, 360, 23);
-		rdbtn13.setActionCommand("4");
+		JRadioButton rdbtn13 = new JRadioButton("Todos los datos ingresados se conservan");
+		rdbtn13.setBounds(10, 136, 360, 23);
+		rdbtn13.setActionCommand("3");
 		contentPane.add(rdbtn13);
-
-		JRadioButton rdbtn14 = new JRadioButton("Todos los datos ingresados se conservan");
-		rdbtn14.setBounds(6, 162, 360, 23);
-		rdbtn14.setActionCommand("5");
-		contentPane.add(rdbtn14);
 
 		ButtonGroup grupo1 = new ButtonGroup();
 		grupo1.add(rdbtn11);
 		grupo1.add(rdbtn12);
 		grupo1.add(rdbtn13);
-		grupo1.add(rdbtn14);
 
 		JLabel lblConCuantasDe = new JLabel(
 				"Al realizar un cierre forzado al programa, \u00BFlos datos recientes persisten en el disco r\u00EDgido?");
-		lblConCuantasDe.setBounds(14, 218, 550, 14);
+		lblConCuantasDe.setBounds(14, 176, 550, 14);
 		contentPane.add(lblConCuantasDe);
 
 		JRadioButton rdbtn21 = new JRadioButton("Se pierden los datos ingresados hasta con 10 minutos de anterioridad");
-		rdbtn21.setBounds(10, 251, 463, 23);
-		rdbtn21.setActionCommand("1");
+		rdbtn21.setBounds(10, 209, 463, 23);
+		rdbtn21.setActionCommand("0");
 		contentPane.add(rdbtn21);
 
-		JRadioButton rdbtn22 = new JRadioButton("Se pierden los datos ingresados hasta con 5 minutos de anterioridad");
-		rdbtn22.setBounds(10, 277, 463, 23);
-		rdbtn22.setActionCommand("2");
+		JRadioButton rdbtn22 = new JRadioButton("Se pierden los datos ingresados hasta con 1 minuto de anterioridad");
+		rdbtn22.setBounds(10, 235, 463, 23);
+		rdbtn22.setActionCommand("1");
 		contentPane.add(rdbtn22);
 
-		JRadioButton rdbtn23 = new JRadioButton("Se pierden los datos ingresados hasta con 1 minuto de anterioridad");
-		rdbtn23.setBounds(10, 303, 463, 23);
-		rdbtn23.setActionCommand("4");
-		contentPane.add(rdbtn23);
-
-		JRadioButton rdbtn24 = new JRadioButton(
+		JRadioButton rdbtn23 = new JRadioButton(
 				"No se pierden los datos ingresados y el programa recupera su estado previo");
-		rdbtn24.setBounds(10, 329, 463, 23);
-		rdbtn24.setActionCommand("5");
-		contentPane.add(rdbtn24);
+		rdbtn23.setBounds(10, 261, 463, 23);
+		rdbtn23.setActionCommand("3");
+		contentPane.add(rdbtn23);
 
 		ButtonGroup grupo2 = new ButtonGroup();
 		grupo2.add(rdbtn21);
 		grupo2.add(rdbtn22);
 		grupo2.add(rdbtn23);
-		grupo2.add(rdbtn24);
 
 		JButton btnSiguiente = new JButton("Siguiente");
 		btnSiguiente.addActionListener(new ActionListener() {
@@ -138,7 +126,13 @@ public class Fiabilidad extends JFrame {
 					int pje1 = Integer.parseInt(grupo1.getSelection().getActionCommand());
 					int pje2 = Integer.parseInt(grupo2.getSelection().getActionCommand());
 
-					float promedio = (float) (pje1 + pje2) / 2;
+					float promedio;
+					if (pje1 == 0 || pje2 == 0) {
+						promedio = 0;
+					} else {
+						promedio = (float) (pje1 + pje2) / 2;
+					}
+					
 					maestra.setFiabilidad(promedio);
 
 					Mantenibilidad man = new Mantenibilidad(getMaestra());
@@ -148,7 +142,7 @@ public class Fiabilidad extends JFrame {
 				}
 			}
 		});
-		btnSiguiente.setBounds(250, 394, 89, 23);
+		btnSiguiente.setBounds(248, 304, 89, 23);
 		contentPane.add(btnSiguiente);
 
 		JLabel lblFiabilidad = new JLabel("FIABILIDAD");

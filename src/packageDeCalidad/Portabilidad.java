@@ -58,7 +58,7 @@ public class Portabilidad extends JFrame {
 
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 468, 532);
+		setBounds(100, 100, 468, 466);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -71,60 +71,54 @@ public class Portabilidad extends JFrame {
 
 		JRadioButton rdbtn11 = new JRadioButton("4 o m\u00E1s");
 		rdbtn11.setBounds(6, 87, 360, 23);
-		rdbtn11.setActionCommand("1");
+		rdbtn11.setActionCommand("0");
 		contentPane.add(rdbtn11);
 
-		JRadioButton rdbtn12 = new JRadioButton("Exactamente 3");
-		rdbtn12.setBounds(6, 113, 360, 23);
-		rdbtn12.setActionCommand("2");
-		contentPane.add(rdbtn12);
-
-		JRadioButton rdbtn13 = new JRadioButton("Exactamente 2");
-		rdbtn13.setBounds(6, 139, 360, 23);
-		rdbtn13.setActionCommand("4");
+		JRadioButton rdbtn13 = new JRadioButton("2 o 3");
+		rdbtn13.setBounds(6, 113, 360, 23);
+		rdbtn13.setActionCommand("1");
 		contentPane.add(rdbtn13);
 
 		JRadioButton rdbtn14 = new JRadioButton("1 o ninguna");
-		rdbtn14.setBounds(6, 165, 360, 23);
-		rdbtn14.setActionCommand("5");
+		rdbtn14.setBounds(6, 139, 360, 23);
+		rdbtn14.setActionCommand("3");
 		contentPane.add(rdbtn14);
 
 		ButtonGroup grupo1 = new ButtonGroup();
 		grupo1.add(rdbtn11);
-		grupo1.add(rdbtn12);
 		grupo1.add(rdbtn13);
 		grupo1.add(rdbtn14);
 
 		JLabel lblConCuantasDe = new JLabel(
 				"De las siguientes arquitecturas, \u00BFcu\u00E1ntas son soportadas por el software?");
-		lblConCuantasDe.setBounds(14, 221, 550, 14);
+		lblConCuantasDe.setBounds(14, 178, 550, 14);
 		contentPane.add(lblConCuantasDe);
 
 		JLabel lblSistemasDe = new JLabel("- Sistemas de 32 bits");
-		lblSistemasDe.setBounds(10, 257, 494, 14);
+		lblSistemasDe.setBounds(10, 214, 494, 14);
 		contentPane.add(lblSistemasDe);
 
 		JLabel lblSistemasDe_1 = new JLabel("- Sistemas de 64 bits");
-		lblSistemasDe_1.setBounds(10, 282, 494, 14);
+		lblSistemasDe_1.setBounds(10, 239, 494, 14);
 		contentPane.add(lblSistemasDe_1);
 
 		JLabel lblSistemasArn = new JLabel("- Sistemas ARM");
-		lblSistemasArn.setBounds(10, 307, 494, 14);
+		lblSistemasArn.setBounds(10, 264, 494, 14);
 		contentPane.add(lblSistemasArn);
 
-		JRadioButton rdbtn21 = new JRadioButton("1");
-		rdbtn21.setBounds(10, 347, 463, 23);
-		rdbtn21.setActionCommand("1");
+		JRadioButton rdbtn21 = new JRadioButton("0");
+		rdbtn21.setBounds(10, 304, 463, 23);
+		rdbtn21.setActionCommand("0");
 		contentPane.add(rdbtn21);
 
-		JRadioButton rdbtn22 = new JRadioButton("2");
-		rdbtn22.setBounds(10, 373, 463, 23);
-		rdbtn22.setActionCommand("3");
+		JRadioButton rdbtn22 = new JRadioButton("1");
+		rdbtn22.setBounds(10, 330, 463, 23);
+		rdbtn22.setActionCommand("1");
 		contentPane.add(rdbtn22);
 
-		JRadioButton rdbtn23 = new JRadioButton("Todas");
-		rdbtn23.setBounds(10, 399, 463, 23);
-		rdbtn23.setActionCommand("5");
+		JRadioButton rdbtn23 = new JRadioButton("2 o 3");
+		rdbtn23.setBounds(10, 356, 463, 23);
+		rdbtn23.setActionCommand("3");
 		contentPane.add(rdbtn23);
 
 		ButtonGroup grupo2 = new ButtonGroup();
@@ -143,7 +137,13 @@ public class Portabilidad extends JFrame {
 					int pje1 = Integer.parseInt(grupo1.getSelection().getActionCommand());
 					int pje2 = Integer.parseInt(grupo2.getSelection().getActionCommand());
 
-					float promedio = (float) (pje1 + pje2) / 2;
+					float promedio;
+					if (pje1 == 0 || pje2 == 0) {
+						promedio = 0;
+					} else {
+						promedio = (float) (pje1 + pje2) / 2;	
+					}
+					
 					maestra.setPortabilidad(promedio);
 
 					FinEvaluacion fin = new FinEvaluacion(getMaestra());
@@ -153,7 +153,7 @@ public class Portabilidad extends JFrame {
 				}
 			}
 		});
-		btnSiguiente.setBounds(181, 450, 89, 23);
+		btnSiguiente.setBounds(177, 392, 89, 23);
 		contentPane.add(btnSiguiente);
 
 		JLabel lblPortabilidad = new JLabel("PORTABILIDAD");

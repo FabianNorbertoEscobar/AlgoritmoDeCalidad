@@ -58,7 +58,7 @@ public class Usabilidad extends JFrame {
 
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 453, 477);
+		setBounds(100, 100, 453, 369);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -71,60 +71,48 @@ public class Usabilidad extends JFrame {
 
 		JRadioButton rdbtn11 = new JRadioButton("5 o m\u00E1s");
 		rdbtn11.setBounds(6, 84, 360, 23);
-		rdbtn11.setActionCommand("1");
+		rdbtn11.setActionCommand("0");
 		contentPane.add(rdbtn11);
 
-		JRadioButton rdbtn12 = new JRadioButton("Exactamente 4");
+		JRadioButton rdbtn12 = new JRadioButton("3 o 4");
 		rdbtn12.setBounds(6, 110, 360, 23);
-		rdbtn12.setActionCommand("2");
+		rdbtn12.setActionCommand("1");
 		contentPane.add(rdbtn12);
 
-		JRadioButton rdbtn13 = new JRadioButton("Exactamente 3");
+		JRadioButton rdbtn13 = new JRadioButton("2 o menos");
 		rdbtn13.setBounds(6, 136, 360, 23);
-		rdbtn13.setActionCommand("4");
+		rdbtn13.setActionCommand("3");
 		contentPane.add(rdbtn13);
-
-		JRadioButton rdbtn14 = new JRadioButton("2 o menos");
-		rdbtn14.setBounds(6, 162, 360, 23);
-		rdbtn14.setActionCommand("5");
-		contentPane.add(rdbtn14);
 
 		ButtonGroup grupo1 = new ButtonGroup();
 		grupo1.add(rdbtn11);
 		grupo1.add(rdbtn12);
 		grupo1.add(rdbtn13);
-		grupo1.add(rdbtn14);
 
 		JLabel lblConCuantasDe = new JLabel(
 				"\u00BFCu\u00E1ntos errores en promedio comete un usuario al solicitar un informe?");
-		lblConCuantasDe.setBounds(14, 218, 550, 14);
+		lblConCuantasDe.setBounds(14, 177, 550, 14);
 		contentPane.add(lblConCuantasDe);
 
 		JRadioButton rdbtn21 = new JRadioButton("5 o m\u00E1s");
-		rdbtn21.setBounds(10, 251, 463, 23);
-		rdbtn21.setActionCommand("1");
+		rdbtn21.setBounds(10, 210, 463, 23);
+		rdbtn21.setActionCommand("0");
 		contentPane.add(rdbtn21);
 
-		JRadioButton rdbtn22 = new JRadioButton("Entre 3 y 4");
-		rdbtn22.setBounds(10, 277, 463, 23);
-		rdbtn22.setActionCommand("2");
+		JRadioButton rdbtn22 = new JRadioButton("Entre 1 y 4");
+		rdbtn22.setBounds(10, 236, 463, 23);
+		rdbtn22.setActionCommand("1");
 		contentPane.add(rdbtn22);
 
-		JRadioButton rdbtn23 = new JRadioButton("Entre 1 y 2");
-		rdbtn23.setBounds(10, 303, 463, 23);
-		rdbtn23.setActionCommand("4");
+		JRadioButton rdbtn23 = new JRadioButton("Ninguno");
+		rdbtn23.setBounds(10, 262, 463, 23);
+		rdbtn23.setActionCommand("3");
 		contentPane.add(rdbtn23);
-
-		JRadioButton rdbtn24 = new JRadioButton("Ninguno");
-		rdbtn24.setBounds(10, 329, 463, 23);
-		rdbtn24.setActionCommand("5");
-		contentPane.add(rdbtn24);
 
 		ButtonGroup grupo2 = new ButtonGroup();
 		grupo2.add(rdbtn21);
 		grupo2.add(rdbtn22);
 		grupo2.add(rdbtn23);
-		grupo2.add(rdbtn24);
 
 		JButton btnSiguiente = new JButton("Siguiente");
 		btnSiguiente.addActionListener(new ActionListener() {
@@ -137,7 +125,13 @@ public class Usabilidad extends JFrame {
 					int pje1 = Integer.parseInt(grupo1.getSelection().getActionCommand());
 					int pje2 = Integer.parseInt(grupo2.getSelection().getActionCommand());
 
-					float promedio = (float) (pje1 + pje2) / 2;
+					float promedio;
+					if (pje1 == 0 || pje2 == 0) {
+						promedio = 0;
+					} else {
+						promedio = (float) (pje1 + pje2) / 2;	
+					}
+					
 					maestra.setUsabilidad(promedio);
 
 					Portabilidad port = new Portabilidad(getMaestra());
@@ -147,7 +141,7 @@ public class Usabilidad extends JFrame {
 				}
 			}
 		});
-		btnSiguiente.setBounds(180, 390, 89, 23);
+		btnSiguiente.setBounds(180, 297, 89, 23);
 		contentPane.add(btnSiguiente);
 
 		JLabel lblUsabilidad = new JLabel("USABILIDAD");

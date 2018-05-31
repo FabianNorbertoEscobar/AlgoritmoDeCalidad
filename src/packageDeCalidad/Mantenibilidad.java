@@ -58,7 +58,7 @@ public class Mantenibilidad extends JFrame {
 
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 725, 712);
+		setBounds(100, 100, 725, 593);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -86,90 +86,72 @@ public class Mantenibilidad extends JFrame {
 		contentPane.add(lblLogsAl_2);
 
 		JRadioButton rdbtn11 = new JRadioButton("0");
-		rdbtn11.setBounds(20, 199, 360, 23);
-		rdbtn11.setActionCommand("1");
+		rdbtn11.setBounds(20, 192, 360, 23);
+		rdbtn11.setActionCommand("0");
 		contentPane.add(rdbtn11);
 
-		JRadioButton rdbtn12 = new JRadioButton("1 o 2");
-		rdbtn12.setBounds(20, 225, 360, 23);
-		rdbtn12.setActionCommand("2");
+		JRadioButton rdbtn12 = new JRadioButton("1");
+		rdbtn12.setBounds(20, 218, 360, 23);
+		rdbtn12.setActionCommand("1");
 		contentPane.add(rdbtn12);
 
-		JRadioButton rdbtn13 = new JRadioButton("3");
-		rdbtn13.setBounds(20, 251, 360, 23);
-		rdbtn13.setActionCommand("4");
+		JRadioButton rdbtn13 = new JRadioButton("2 o m\u00E1s");
+		rdbtn13.setBounds(20, 244, 360, 23);
+		rdbtn13.setActionCommand("3");
 		contentPane.add(rdbtn13);
-
-		JRadioButton rdbtn14 = new JRadioButton("4");
-		rdbtn14.setBounds(20, 277, 360, 23);
-		rdbtn14.setActionCommand("5");
-		contentPane.add(rdbtn14);
 
 		ButtonGroup grupo1 = new ButtonGroup();
 		grupo1.add(rdbtn11);
 		grupo1.add(rdbtn12);
 		grupo1.add(rdbtn13);
-		grupo1.add(rdbtn14);
 
 		JLabel lblConCuantasDe = new JLabel(
 				"En un intervalo de 100 horas, \u00BFcu\u00E1ntos fallos ocurren durante la ejecuci\u00F3n del programa?");
-		lblConCuantasDe.setBounds(24, 320, 524, 14);
+		lblConCuantasDe.setBounds(24, 284, 524, 14);
 		contentPane.add(lblConCuantasDe);
 
-		JRadioButton rdbtn21 = new JRadioButton("M\u00E1s de 2 fallos");
-		rdbtn21.setBounds(20, 353, 356, 23);
-		rdbtn21.setActionCommand("1");
+		JRadioButton rdbtn21 = new JRadioButton("2 o m\u00E1s fallos");
+		rdbtn21.setBounds(20, 310, 356, 23);
+		rdbtn21.setActionCommand("0");
 		contentPane.add(rdbtn21);
 
-		JRadioButton rdbtn22 = new JRadioButton("Exactamente 2 fallos");
-		rdbtn22.setBounds(20, 379, 356, 23);
-		rdbtn22.setActionCommand("2");
-		contentPane.add(rdbtn22);
-
 		JRadioButton rdbtn23 = new JRadioButton("Exactamente 1 fallo");
-		rdbtn23.setBounds(20, 405, 356, 23);
-		rdbtn23.setActionCommand("4");
+		rdbtn23.setBounds(20, 336, 356, 23);
+		rdbtn23.setActionCommand("1");
 		contentPane.add(rdbtn23);
 
 		JRadioButton rdbtn24 = new JRadioButton("Ning\u00FAn fallo");
-		rdbtn24.setBounds(20, 431, 356, 23);
-		rdbtn24.setActionCommand("5");
+		rdbtn24.setBounds(20, 362, 356, 23);
+		rdbtn24.setActionCommand("3");
 		contentPane.add(rdbtn24);
 
 		ButtonGroup grupo2 = new ButtonGroup();
 		grupo2.add(rdbtn21);
-		grupo2.add(rdbtn22);
 		grupo2.add(rdbtn23);
 		grupo2.add(rdbtn24);
 
 		JLabel lblUnInformeGenerado = new JLabel(
 				"Al modificarse una funcionalidad del programa, \u00BFcu\u00E1ntas funcionalidades deben modificarse para aceptar este cambio?");
-		lblUnInformeGenerado.setBounds(24, 476, 691, 14);
+		lblUnInformeGenerado.setBounds(24, 400, 691, 14);
 		contentPane.add(lblUnInformeGenerado);
 
 		JRadioButton rdbtn31 = new JRadioButton("4 o m\u00E1s");
-		rdbtn31.setBounds(20, 508, 356, 23);
-		rdbtn31.setActionCommand("1");
+		rdbtn31.setBounds(20, 432, 356, 23);
+		rdbtn31.setActionCommand("0");
 		contentPane.add(rdbtn31);
 
-		JRadioButton rdbtn32 = new JRadioButton("3");
-		rdbtn32.setBounds(20, 534, 356, 23);
-		rdbtn32.setActionCommand("2");
-		contentPane.add(rdbtn32);
-
-		JRadioButton rdbtn33 = new JRadioButton("2");
-		rdbtn33.setBounds(20, 560, 356, 23);
-		rdbtn33.setActionCommand("4");
+		JRadioButton rdbtn33 = new JRadioButton("2 o 3");
+		rdbtn33.setBounds(20, 458, 356, 23);
+		rdbtn33.setActionCommand("1");
 		contentPane.add(rdbtn33);
 
 		JRadioButton rdbtn34 = new JRadioButton("1 o ninguna");
-		rdbtn34.setBounds(20, 586, 356, 23);
-		rdbtn34.setActionCommand("5");
+		rdbtn34.setBounds(20, 484, 356, 23);
+		rdbtn34.setActionCommand("3");
 		contentPane.add(rdbtn34);
 
 		ButtonGroup grupo3 = new ButtonGroup();
 		grupo3.add(rdbtn31);
-		grupo3.add(rdbtn32);
 		grupo3.add(rdbtn33);
 		grupo3.add(rdbtn34);
 
@@ -185,7 +167,13 @@ public class Mantenibilidad extends JFrame {
 					int pje2 = Integer.parseInt(grupo2.getSelection().getActionCommand());
 					int pje3 = Integer.parseInt(grupo3.getSelection().getActionCommand());
 
-					float promedio = (float) (pje1 + pje2 + pje3) / 3;
+					float promedio;
+					if (pje1 == 0 || pje2 == 0 || pje3 == 0) {
+						promedio = 0;
+					} else {
+						promedio = (float) (pje1 + pje2 + pje3) / 3;	
+					}
+					
 					maestra.setMantenibilidad(promedio);
 
 					Usabilidad usa = new Usabilidad(getMaestra());
@@ -195,7 +183,7 @@ public class Mantenibilidad extends JFrame {
 				}
 			}
 		});
-		button.setBounds(307, 635, 89, 23);
+		button.setBounds(300, 521, 89, 23);
 		contentPane.add(button);
 
 		JLabel lblMantenibilidad = new JLabel("MANTENIBILIDAD");

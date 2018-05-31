@@ -62,7 +62,7 @@ public class InicioEvaluacion extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lblComenzandoEvaluacin = new JLabel("Comenzando evaluaci\u00F3n");
+		JLabel lblComenzandoEvaluacin = new JLabel("EVALUACI\u00D3N DE CALIDAD");
 		lblComenzandoEvaluacin.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblComenzandoEvaluacin.setBounds(134, 34, 169, 30);
 		contentPane.add(lblComenzandoEvaluacin);
@@ -70,7 +70,7 @@ public class InicioEvaluacion extends JFrame {
 		JTextArea txtrAContinuacinSe = new JTextArea();
 		txtrAContinuacinSe.setWrapStyleWord(true);
 		txtrAContinuacinSe.setText(
-				"A continuaci\u00F3n se le presentar\u00E1n algunas preguntas para evaluar la calidad del software. Presione siguiente para continuar.");
+				"Se le presentar\u00E1n algunas preguntas para evaluar la calidad del software. Presione siguiente para continuar.");
 		txtrAContinuacinSe.setLineWrap(true);
 		txtrAContinuacinSe.setEditable(false);
 		txtrAContinuacinSe.setBounds(10, 91, 404, 71);
